@@ -53,6 +53,16 @@ export const addCourseThunk = (course) => async (dispatch) => {
     console.error(err);
   }
 };
+export const addInstructorThunk = (instructor) => async (dispatch) => {
+  // course = { title: "CSCI 127" }
+  try {
+    let res = await axios.post(`${path}/instructor`, instructor);
+    dispatch(ac.addInstructor(res.data));
+    return res.data;
+  } catch(err) {
+    console.error(err);
+  }
+};
 
 export const deleteCourseThunk = courseId => async dispatch => {
   try {
@@ -62,6 +72,17 @@ export const deleteCourseThunk = courseId => async dispatch => {
   } catch(err) {
     console.error(err);
   }
+};
+export const deleteInstructorThunk = instructorId => async dispatch => {
+  alert("Delete thunk")
+  try {
+    await axios.delete(`${path}/instructors/${instructorId}`);
+    //delete succesful so change state with dispatch
+    dispatch(ac.deleteInstructor(instructorId));
+  } catch(err) {
+    console.error(err);
+  }
+  
 };
 
 export const editCourseThunk = course => async dispatch => {

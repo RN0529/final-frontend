@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { 
   fetchInstructorThunk,
   fetchAllCoursesThunk,
+  deleteInstructorThunk,
   editCourseThunk 
 } from "../../store/thunks";
 
@@ -41,7 +42,7 @@ const mapDispatch = (dispatch) => {
     fetchInstructor: (id) => dispatch(fetchInstructorThunk(id)),
     editCourse: (course) => dispatch(editCourseThunk(course)),
     fetchCourses: () => dispatch(fetchAllCoursesThunk()),
-
+    deleteInstructor: (id) => dispatch(deleteInstructorThunk(id))
   };
 };
 

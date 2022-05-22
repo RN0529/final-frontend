@@ -6,6 +6,9 @@ const AllCoursesView = (props) => {
   if (!courses.length) {
     return (
     <div>
+      <Link to={`/`}>
+            <h1>HomePage</h1>
+          </Link>
       <p>There are no courses.</p>
       <Link to={`/newcourse`}>
         <button>Add New Course</button>
@@ -16,6 +19,9 @@ const AllCoursesView = (props) => {
   
   return (
     <div>
+      <Link to={`/`}>
+            <h1>HomePage</h1>
+          </Link>
       {courses.map((course) => {
         let title = course.title;
         return (
