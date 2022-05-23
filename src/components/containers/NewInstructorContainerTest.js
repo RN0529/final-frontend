@@ -12,7 +12,8 @@ class NewInstructorContainerTest extends Component {
         this.state = {
           firstname: "", 
           lastname: "",
-          sdepartment: "",
+          department: "",
+          imageUrl: "",
           instructorId: null, 
           redirect: false, 
           redirectId: null
@@ -28,11 +29,17 @@ class NewInstructorContainerTest extends Component {
 
     handleSubmit = async event => {
         event.preventDefault();
+        if(this.state.firstname == '' || this.state.lastname == '')
+        {
+          alert('first name and last name fields cannot be empty')
+          return;
+        }
 
         let instructor = {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
-            lastname: this.state.department,
+            department: this.state.department,
+            imageUrl: this.state.imageUrl,
             
         };
         
@@ -41,9 +48,10 @@ class NewInstructorContainerTest extends Component {
         this.setState({
             firstname: this.state.firstname,
             lastname: this.state.lastname,
-            lastname: this.state.department,
+            department: this.state.department,
+            imageUrl: this.state.imageUrl,
             redirect: true, 
-            
+
             
         });
     }
@@ -68,7 +76,7 @@ class NewInstructorContainerTest extends Component {
 
 const mapDispatch = (dispatch) => {
     return({
-        n  : (instructor) => dispatch(addInstructorThunk(instructor)),
+        addInstructor : (instructor) => dispatch(addInstructorThunk(instructor)),
     })
 }
 

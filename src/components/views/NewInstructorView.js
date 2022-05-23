@@ -9,7 +9,7 @@ const NewInstructorView = (props) => {
         <div className="formContainer">
           <div className="formTitle">
             <h2 style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-              New Course
+              New Instructor
             </h2>
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
@@ -26,7 +26,10 @@ const NewInstructorView = (props) => {
             <input type="text" name="department" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
-  
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>imageUrl: </label>
+            <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
             <button type="submit">
               Submit
             </button>

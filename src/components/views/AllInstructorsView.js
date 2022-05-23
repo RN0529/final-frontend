@@ -30,8 +30,10 @@ const AllInstructorsView = (props) => {
             <h1>{name}</h1>
           </Link>
           <p>{instructor.department}</p>
+          <img src={instructor.imageUrl} alt='no available picture'></img>
+          <br></br>
           {/* make this on click have a delete course functionality */}
-          <button onClick={() => deleteInstructor(instructor.id)}>Delete</button>
+          <button onClick={() => deleteInstructor(instructor.id)}>X</button>
         </div>
         );
 
