@@ -2,11 +2,11 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import NewCourseView from '../views/NewCourseView';
-import { addCourseThunk } from '../../store/thunks';
+import EditCourseView from '../views/EditCourseView';
+import { editCourseThunk } from '../../store/thunks';
 
 
-class NewCourseContainer extends Component {
+class EditCourseContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -15,7 +15,7 @@ class NewCourseContainer extends Component {
           location: "", 
           instructorId: null, 
           redirect: false, 
-          redirectId: null
+          id: this.props.match.params.id,
         };
     }
 
@@ -27,15 +27,20 @@ class NewCourseContainer extends Component {
 
     handleSubmit = async event => {
         event.preventDefault();
-
+        if(this.state.title == '' || this.state.timeslot == '')
+        {
+            alert('title and/or timeslot cannot be empty');
+            return;
+        }
         let course = {
             title: this.state.title,
             timeslot: this.state.timeslot,
             location: this.state.location,
-            instructorId: this.state.instructorId
+            instructorId: this.state.instructorId,
+            id: this.state.id,
         };
         
-        let newCourse = await this.props.addCourse(course);
+        let editCourse = await this.props.editCourse(course);
 
         this.setState({
           title: this.state.title,
@@ -43,7 +48,7 @@ class NewCourseContainer extends Component {
           location: this.state.location,
           instructorId: null, 
           redirect: true, 
-          redirectId: newCourse.id
+          id: this.state.id,
         });
     }
 
@@ -52,14 +57,14 @@ class NewCourseContainer extends Component {
     }
 
     render() {
-      //go to single course view of newly created course
         if(this.state.redirect) {
-          return (<Redirect to={`/courses/${this.state.redirectId}`}/>)
+          return (<Redirect to={`/courses/${this.state.id}`}/>)
         }
         return (
-          <NewCourseView 
+          <EditCourseView 
             handleChange = {this.handleChange} 
-            handleSubmit={this.handleSubmit}      
+            handleSubmit={this.handleSubmit}
+            course={this.props.course}      
           />
         );
     }
@@ -67,8 +72,8 @@ class NewCourseContainer extends Component {
 
 const mapDispatch = (dispatch) => {
     return({
-        addCourse: (course) => dispatch(addCourseThunk(course)),
+        editCourse: (course) => dispatch(editCourseThunk(course)),
     })
 }
 
-export default connect(null, mapDispatch)(NewCourseContainer);
+export default connect(null, mapDispatch)(EditCourseContainer);

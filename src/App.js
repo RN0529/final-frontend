@@ -11,6 +11,7 @@ import {
   AllCoursesContainer,
   NewCourseContainer,
   EditInstructorContainer,
+  EditCourseContainer,
   
 
 } from './components/containers';
@@ -20,7 +21,7 @@ import {
 // if you create separate components for adding/editing 
 // a student or instructor, make sure you add routes to those
 // components here
-import NewInstructorContainerTest from './components/containers/NewInstructorContainerTest' 
+import NewInstructorContainer from './components/containers/NewInstructorContainer' 
 const App = () => {
   return (
     <div className="App">
@@ -31,10 +32,10 @@ const App = () => {
         <Route exact path="/instructors/:id" component={InstructorContainer} />
         <Route exact path="/courses" component={AllCoursesContainer} />
         <Route exact path="/newcourse" component={NewCourseContainer} />
-        <Route exact path="/newinstructor" component={NewInstructorContainerTest} />
+        <Route exact path="/newinstructor" component={NewInstructorContainer} />
         <Route exact path="/courses/:id" component={CourseContainer} />
         <Route exact path="/editinstructor/:id" component={EditInstructorContainer} />
-        {/* <Route exact path="/editcourse/:id" component={EditCourseContainer} /> */}
+        <Route exact path="/editcourse/:id" component={EditCourseContainer} />
 
       </Switch>        
     </div>

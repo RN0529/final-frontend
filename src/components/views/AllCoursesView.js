@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { editCourse } from "../../store/actions/actionCreators";
+
 
 const AllCoursesView = (props) => {
   let {courses, deleteCourse} = props;
@@ -30,6 +32,9 @@ const AllCoursesView = (props) => {
             <h1>{title}</h1>
           </Link>
           <button onClick={() => deleteCourse(course.id)}>X</button>
+          <Link to={`/editcourse/${course.id}`}>
+          <button onClick={() => editCourse(course.id)}>Edit Course</button>
+          </Link>
           </div>
         );
       }

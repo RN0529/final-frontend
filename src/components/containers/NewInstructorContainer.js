@@ -6,7 +6,7 @@ import NewInstructorView from '../views/NewInstructorView';
 import { addInstructorThunk } from '../../store/thunks';
 
 
-class NewInstructorContainerTest extends Component {
+class NewInstructorContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -79,4 +79,4 @@ const mapDispatch = (dispatch) => {
     })
 }
 
-export default connect(null, mapDispatch)(NewInstructorContainerTest);
+export default connect(null, mapDispatch)(NewInstructorContainer);

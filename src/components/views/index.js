@@ -6,6 +6,6 @@ export { default as NewCourseView } from "./NewCourseView";
 export { default as InstructorView } from "./InstructorView";
 export { default as CourseView } from "./CourseView";
 export { default as HomePageView } from "./HomePageView";
-// export { default as EditCourseView } from "./EditCourseView";
+export { default as EditCourseView } from "./EditCourseView";
 export { default as EditInstructorView } from "./EditInstructorView";
 
