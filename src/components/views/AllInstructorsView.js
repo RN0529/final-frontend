@@ -26,7 +26,7 @@ const AllInstructorsView = (props) => {
         let name = instructor.firstname + " " + instructor.lastname;
         return (
           <div key={instructor.id}>
-          <Link to={`/instructor/${instructor.id}`}>
+          <Link to={`/instructors/${instructor.id}`}>
             <h1>{name}</h1>
           </Link>
           <p>{instructor.department}</p>

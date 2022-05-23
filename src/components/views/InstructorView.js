@@ -15,7 +15,7 @@ const InstructorView = (props) => {
         {assignedCourses.map( course => {
           return (
             <div key={course.id}>
-            <Link to={`/course/${course.id}`}>
+            <Link to={`/courses/${course.id}`}>
               <h4>{course.title}</h4>
             </Link>
             <button onClick={() => editCourse({id:course.id, instructorId: null})}>x</button>
@@ -26,7 +26,7 @@ const InstructorView = (props) => {
         {availableCourses.map( course => {
           return (
             <div key={course.id}>
-            <Link to={`/course/${course.id}`}>
+            <Link to={`/courses/${course.id}`}>
               <h4>{course.title}</h4>
             </Link>
             <button onClick={() => editCourse({id:course.id, instructorId: instructor.id})}>+</button>

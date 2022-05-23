@@ -51,8 +51,7 @@ class NewInstructorContainerTest extends Component {
             department: this.state.department,
             imageUrl: this.state.imageUrl,
             redirect: true, 
-
-            
+            redirectId: newinstructor.id,
         });
     }
 
@@ -63,7 +62,7 @@ class NewInstructorContainerTest extends Component {
     render() {
         //go to single course view of newly created course
           if(this.state.redirect) {
-            return (<Redirect to={`/instructor/${this.state.redirectId}`}/>)
+            return (<Redirect to={`/instructors/${this.state.redirectId}`}/>)
           }
           return (
             <NewInstructorView 

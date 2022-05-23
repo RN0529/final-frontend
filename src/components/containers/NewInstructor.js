@@ -32,8 +32,7 @@ class NewInstructor extends Component {
         let instructor = {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
-            lastname: this.state.department,
-            
+            department: this.state.department,
         };
         
         let newinstructor = await this.props.addInstructor(instructor);
@@ -41,9 +40,9 @@ class NewInstructor extends Component {
         this.setState({
             firstname: this.state.firstname,
             lastname: this.state.lastname,
-            lastname: this.state.department,
+            department: this.state.department,
             redirect: true, 
-            redirectId: newinstructor.id
+            redirectId: newinstructor.id,
         });
     }
 
