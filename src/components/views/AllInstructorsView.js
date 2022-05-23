@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { editInstructor } from "../../store/actions/actionCreators";
 
 const AllInstructorsView = (props) => {
   let {deleteInstructor} = props
@@ -34,6 +35,9 @@ const AllInstructorsView = (props) => {
           <br></br>
           {/* make this on click have a delete course functionality */}
           <button onClick={() => deleteInstructor(instructor.id)}>X</button>
+          <Link to={`/editinstructor/${instructor.id}`}>
+          <button onClick={() => editInstructor(instructor.id)}>Edit Instructor</button>
+          </Link>
         </div>
         );
 
